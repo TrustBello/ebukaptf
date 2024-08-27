@@ -1,16 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
-import About from './Components/About';
-import Layout from './Components/Layout';
-import Hero from './Components/Hero';
-import PlayGround from './Components/PlayGround';
-import MotionWrapper from './Components/MotionWrapper';
-import BimblePage from './Components/BimblePage';
-import Nft from './Components/Nft';
-import BimbleDomain from './Components/BimbleDomain';
-import BimbleWelcome from './Components/BimbleWelcome';
-import Discord from './Components/Discord';
+import React, { useEffect, useRef, useState } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import About from "./Components/About";
+import Layout from "./Components/Layout";
+import Hero from "./Components/Hero";
+import PlayGround from "./Components/PlayGround";
+import MotionWrapper from "./Components/MotionWrapper";
+import BimblePage from "./Components/BimblePage";
+import Nft from "./Components/Nft";
+import BimbleDomain from "./Components/BimbleDomain";
+import BimbleWelcome from "./Components/BimbleWelcome";
+import Discord from "./Components/Discord";
 
 // Counter Component
 const Counter = ({ onComplete }) => {
@@ -76,24 +76,24 @@ const App = () => {
       requestAnimationFrame(updateCursor);
     };
 
-    window.addEventListener('mousemove', moveCursor);
+    window.addEventListener("mousemove", moveCursor);
     updateCursor();
 
     return () => {
-      window.removeEventListener('mousemove', moveCursor);
+      window.removeEventListener("mousemove", moveCursor);
     };
   }, [isLoading]);
 
   useEffect(() => {
     const checkIfCounterShouldShow = () => {
-      const lastShown = localStorage.getItem('lastCounterShown');
+      const lastShown = localStorage.getItem("lastCounterShown");
       const now = new Date().getTime();
       const THIRTY_MINUTES = 30 * 60 * 1000; // 30 minutes in milliseconds
 
       if (!lastShown || now - parseInt(lastShown, 10) > THIRTY_MINUTES) {
         setIsLoading(true);
-        sessionStorage.setItem('counterShown', 'false'); // Reset for this session
-        localStorage.setItem('lastCounterShown', now.toString());
+        sessionStorage.setItem("counterShown", "false"); // Reset for this session
+        localStorage.setItem("lastCounterShown", now.toString());
       } else {
         setIsLoading(false);
       }
@@ -104,7 +104,7 @@ const App = () => {
 
   const handleCounterComplete = () => {
     setIsLoading(false);
-    sessionStorage.setItem('counterShown', 'true'); // Set the counter as shown for the session
+    sessionStorage.setItem("counterShown", "true"); // Set the counter as shown for the session
   };
 
   if (isLoading) {
@@ -117,24 +117,73 @@ const App = () => {
       <div
         ref={cursorRef}
         className={`cursor fixed hidden xl:flex top-0 left-0 w-[5px] h-[5px] pointer-events-none duration-300 rounded-full z-50 ${
-          isMouseMoving ? 'block' : 'hidden'
-        } ${isHovering ? 'biggerCursor' : ''}`}
+          isMouseMoving ? "block" : "hidden"
+        } ${isHovering ? "biggerCursor" : ""}`}
         style={{
-          backgroundColor: isHovering ? 'black' : 'white',
-          mixBlendMode: 'difference',
-          transform: 'translate(-50%, -50%)',
+          backgroundColor: isHovering ? "black" : "white",
+          mixBlendMode: "difference",
+          transform: "translate(-50%, -50%)",
         }}
       />
 
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<MotionWrapper><Layout /></MotionWrapper>}>
-            <Route index element={<MotionWrapper><Hero /></MotionWrapper>} />
-            <Route path="/about" element={<MotionWrapper><About /></MotionWrapper>} />
-            <Route path="/playground" element={<MotionWrapper><PlayGround /></MotionWrapper>} />
-            <Route path="/bimble" element={<MotionWrapper><BimblePage /></MotionWrapper>} />
-            <Route path="/bimbledomain" element={<MotionWrapper><BimbleDomain /></MotionWrapper>} />
-            <Route path="nft" element={<MotionWrapper><Nft /></MotionWrapper>} />
+          <Route
+            path="/"
+            element={
+              <MotionWrapper>
+                <Layout />
+              </MotionWrapper>
+            }
+          >
+            <Route
+              index
+              element={
+                <MotionWrapper>
+                  <Hero />
+                </MotionWrapper>
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <MotionWrapper>
+                  <About />
+                </MotionWrapper>
+              }
+            />
+            <Route
+              path="/playground"
+              element={
+                <MotionWrapper>
+                  <PlayGround />
+                </MotionWrapper>
+              }
+            />
+            <Route
+              path="/bimble"
+              element={
+                <MotionWrapper>
+                  <BimblePage />
+                </MotionWrapper>
+              }
+            />
+            <Route
+              path="/bimbledomain"
+              element={
+                <MotionWrapper>
+                  <BimbleDomain />
+                </MotionWrapper>
+              }
+            />
+            <Route
+              path="nft"
+              element={
+                <MotionWrapper>
+                  <Nft />
+                </MotionWrapper>
+              }
+            />
             <Route path="/bimble2" element={<BimbleWelcome />} />
             <Route path="/discord" element={<Discord />} />
           </Route>

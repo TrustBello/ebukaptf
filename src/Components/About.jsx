@@ -5,21 +5,21 @@ import { IoMail } from "react-icons/io5";
 
 const About = () => {
   return (
-    <div className="px-[20px] max-w-[1640px] mx-auto md:px-[30px] lg:px-[40px] xl:px-[55px] 2xl:px-[70px] about flex flex-col justify-center mt-[20px] xl:my-[20px] items-center min-h-[400px] xl:h-[100vh]">
-      <div className="flex flex-col md:flex-row items-center w-full lg:justify-between gap-[30px] md:gap-[40px]">
-        <div className="w-auto md:w-[340px] xl:w-[470px] 2xl:w-[550px]">
+    <div className="px-4 max-w-[1640px] mx-auto md:px-6 lg:px-10 xl:px-14 2xl:px-18 about flex flex-col justify-center mt-5 xl:my-5 items-center min-h-[400px] xl:h-[100vh]">
+      <div className="flex flex-col md:flex-row items-start w-full lg:justify-between gap-5 md:gap-6">
+        <div className="w-full sm:w-[300px] md:w-[340px] xl:w-[470px] 2xl:w-[550px]">
           <img
             src={Ebuka}
             className="w-full h-auto object-cover"
             alt="Profile"
           />
         </div>
-        <div className=" w-[500px] md:w-[690px] xl:w-[740px] 2xl:w-[840px] font-[400] leading-[1.5] text-[12px] md:text-[14px] lg:text-[15px] xl:text-[12px] 2xl:text-[14px] flex flex-col gap-[20px] md:gap-[30px] lg:gap-[30px] 2xl:gap-[30px]">
-          <h1 className="text-[20px] font-monument-extended font-[200]">
+        <div className="w-full sm:w-[350px] md:w-[690px] xl:w-[740px] 2xl:w-[840px] font-[400] leading-[1.5] text-sm sm:text-base lg:text-lg xl:text-sm 2xl:text-base flex flex-col gap-5 md:gap-6 text-left">
+          <h1 className="text-xl font-monument-extended font-[200]">
             Hi, I’m EBUKA!
           </h1>
           <p>
-            Hi i’m Ebuka! If you’ve gotten this far, I now consider us friends.
+            Hi I’m Ebuka! If you’ve gotten this far, I now consider us friends.
             It’s nice to meet you! I'm a Motion and visual designer passionate
             about creating visuals that tell stories and designing experiences
             that improve everyday lives. I previously worked with{" "}
@@ -84,12 +84,12 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className="border-t-[1px] flex flex-col items-center w-full gap-4 justify-center py-8 md:py-10 mt-[40px] md:mt-[50px] h-auto border-black">
-        <h1 className="font-[100] text-[12px] lg:text-[14px]">
+      <div className="border-t-[1px] flex flex-col items-center w-full gap-4 justify-center py-8 md:py-10 mt-10 md:mt-12 h-auto border-black text-center">
+        <h1 className="font-[100] text-xs lg:text-sm">
           Is your BIG <span className="text-blue-500">idea</span> ready to go{" "}
           <span className="text-blue-500">WILD</span>?
         </h1>
-        <h1 className="text-lg font-bold lg:text-2xl">
+        <h1 className="text-lg font-bold lg:text-xl">
           Let’s work <span className="text-blue-500">together</span> :)
         </h1>
       </div>
